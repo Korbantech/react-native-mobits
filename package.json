@@ -1,6 +1,6 @@
 {
   "name": "react-native-mobits",
-  "version": "0.0.1",
+  "version": "0.0.1-beta",
   "description": "React Native integration with mobits",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -76,8 +76,6 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && yarn typescript"
     }
   },
   "commitlint": {
