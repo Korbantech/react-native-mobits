@@ -19,14 +19,6 @@ nativeEmitter.addListener('open', middleware('open'));
 nativeEmitter.addListener('event', emitter.emit);
 nativeEmitter.addListener('start', () => console.log('start mobits framework'));
 
-emitter.on({
-  auth: console.log,
-  card: console.log,
-  error: console.log,
-  open: console.log,
-  payment: console.log,
-});
-
 interface Mobits {}
 
 export interface MobitsClient {
@@ -37,7 +29,7 @@ export interface MobitsClient {
   email?: string;
 }
 
-const placeholderClient = { phone: '', email: '' }
+const placeholderClient = { phone: '', email: '' };
 
 export interface MobitsEvents {
   payment(
@@ -52,13 +44,22 @@ export interface MobitsEvents {
 
 export const open = (garage: number, track: string, client: MobitsClient) =>
   new Promise<Emitter<MobitsEvents>>((resolve, reject) => {
-    NativeModules.Mobits.open(garage, track, Object.assign( {}, placeholderClient, client )).then(
-      () => resolve(emitter),
-      reject
-    );
-  })
+    NativeModules.Mobits.open(
+      garage,
+      track,
+      Object.assign({}, placeholderClient, client)
+    ).then(() => resolve(emitter), reject);
+  });
 
-const Mobits = { open };
+const Mobits = {
+  open,
+  on: emitter.on,
+  once: emitter.once,
+  off: emitter.off,
+  count: emitter.count,
+  listeners: emitter.listeners,
+  emit: emitter.emit,
+};
 // namespace Mobits {
 //   export interface Client extends MobitsClient {}
 //   export interface Events extends MobitsEvents {}
