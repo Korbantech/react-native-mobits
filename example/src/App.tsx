@@ -2,13 +2,13 @@ import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Mobits, { MobitsClient } from 'react-native-mobits';
 
-const garage = 262;
-const track = '16520ec2-6106-43c9-a709-ece1abd01e94';
+const garage = 0;
+const track = '';
 
 const client: MobitsClient = {
   firstName: 'teste',
   lastName: 'teste',
-  document: '09389416906',
+  document: '00000000000',
 };
 
 export default function App() {

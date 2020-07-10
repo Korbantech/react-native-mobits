@@ -17,7 +17,7 @@ nativeEmitter.addListener('auth-error', middleware('error'));
 nativeEmitter.addListener('card', middleware('card'));
 nativeEmitter.addListener('open', middleware('open'));
 nativeEmitter.addListener('event', emitter.emit);
-nativeEmitter.addListener('start', () => console.log('start mobits framework'));
+nativeEmitter.addListener('start', middleware('start'));
 
 interface Mobits {}
 
@@ -39,6 +39,7 @@ export interface MobitsEvents {
   error(error: Error): void;
   card(...args: [string, string]): void;
   open(...args: [string, string, string, string]): void;
+  start(time: number): void;
   [key: string]: (...args: any[]) => void;
 }
 
