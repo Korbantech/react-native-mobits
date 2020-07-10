@@ -1,17 +1,24 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import Mobits from 'react-native-mobits';
+import Mobits, { MobitsClient } from 'react-native-mobits';
+
+const garage = 262;
+const track = '16520ec2-6106-43c9-a709-ece1abd01e94';
+
+const client: MobitsClient = {
+  firstName: 'teste',
+  lastName: 'teste',
+  document: '09389416906',
+};
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
   React.useEffect(() => {
-    Mobits.multiply(3, 7).then(setResult);
+    Mobits.open(garage, track, client);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Mobits start</Text>
     </View>
   );
 }

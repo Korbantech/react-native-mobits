@@ -1,0 +1,6 @@
+framework module FrameworkNepos {
+  umbrella header "FrameworkNepos.h"
+
+  export *
+  module * { export * }
+}
