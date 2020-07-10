@@ -1,6 +1,6 @@
 {
   "name": "react-native-mobits",
-  "version": "0.0.1-beta",
+  "version": "0.0.1-ac735dc4630da571ab44adc1bf26bab3fbd659b8",
   "description": "React Native integration with mobits",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -8,6 +8,7 @@
   "react-native": "src/index",
   "source": "src/index",
   "files": [
+    "binaries",
     "src",
     "lib",
     "android",
